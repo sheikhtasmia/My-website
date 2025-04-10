@@ -1,36 +1,138 @@
 <!DOCTYPE html>
-<htmal>
-    <body>
-        <h1 style="color: #0000ffec; text-align: center;">Sheikh Tasmia</h1>
-        <h3 style="text-align: center;" ><strong>Digital marketar and web developer</strong> </h3>
-        <p>Hi, I am Sheikh Tasmia. I am a web developer and digital marketer. 
-            I also have a personal YouTube channel,
-             and I love writing.I have a Facebook page where I share some of my writings.<br> 
-             My poetry book has been published on Rokomari.com.
-             I am sharing the links to my channel, page, and e-book.
-             Feel free to check them out if you would like.<br>
-             <a href="https://www.facebook.com/people/Sheikh-Tasmia/61572914755623/">Facebook page</a> <br>
-            <a href="www.youtube.com/@SheikhTasmia-05">YouTube channel</a><br>
-            <a href="https://rkmri.co/N2ymle0NSMMp/">E-book</a></p>
-            <blockquote><h3>About</h3> 
-                **Why Us?**  <br>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST TechWorks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+  fetch("http://localhost:3000/innovations")
+    .then((res) => res.json())
+    .then((data) => {
+      const container = document.querySelector(".innovation-section");
+      let html = '<h2 class="section-title">Our Innovations</h2>';
 
-                Because with us, you’re not just getting a website—you’re getting everything you need to grow
-                 your business!<br>  
-                
-                Here’s what we offer:<br>  
-                1. **Professional Web Development** – High-quality, customized websites. <br> 
-                2. **Custom Design** – Tailored to your brand’s identity. <br> 
-                3. **SEO Expertise** – Boost your online visibility. <br> 
-                4. **Dedicated Support Team** – Assistance whenever you need it.  <br>
-                5. **Complete Product Marketing** – Everything required to promote your business.<br>
-                6. **Organic Marketing** – Grow your company or product naturally.<br>
-                
-                Let’s take your business to the next level! 🚀
-            </blockquote>
-            <p><h3>Contact</h3>
-            Email:<a href="sheikhtasmia25@gmail.com">sheikhtasmia25@gmail.com</a>,<br>
-            WhatsApp: <a href="https://wa.me/message/D53VKLPFB37TJ1">Sheikh-Tasmia</a><br> 
-            </p>      
-    </body>
-</htmal>
+      // Create rows with 3 cards each
+      for (let i = 0; i < data.length; i += 3) {
+        html += '<div class="innovation-row">';
+        for (let j = i; j < i + 3; j++) {
+          if (data[j]) {
+            html += `
+              <div class="innovation-card">
+                <h3>${data[j].title}</h3>
+                <p>${data[j].description}</p>
+              </div>
+            `;
+          } else {
+            html += `<div class="innovation-card empty-card"></div>`;
+          }
+        }
+        html += "</div>";
+      }
+
+      container.innerHTML = html;
+    });
+</script>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="icon2.png" alt="ST TechWorks">
+            <span class="company-name">ST TechWorks</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="our-work.html">Our Work</a></li>
+                <li><a href="our-team-partners.html">Our Team & Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section id="banner">
+        <div class="banner-content">
+            <h1>ST TechWorks</h1>
+            <p>Your one-stop solution for innovative tech services!</p>
+            <a href="about.html" class="btn-learn-more">Learn More</a>
+        </div>
+    </section>
+    <section class="innovation-section">
+        <h2 class="section-title">Our Innovations</h2>
+        <div class="innovation-row">
+          <div class="innovation-card">
+            <h3>Skill-to-Job Program</h3>
+            <p>We train fresh talents and connect them directly to real-world projects, combining learning and earning under one platform.</p>
+          </div>
+          <div class="innovation-card">
+            <h3>Business-in-a-Box Package</h3>
+            <p>From logo to digital marketing—everything a new business needs to go online in one complete package.</p>
+          </div>
+          <div class="innovation-card">
+            <h3>Local Business Digitization</h3>
+            <p>Helping small Bangladeshi businesses go digital with low-cost websites, social media, and branding support.</p>
+          </div>
+        </div>
+      
+        <div class="innovation-row">
+          <div class="innovation-card">
+            <h3>Multi-language Website Services</h3>
+            <p>We build websites in Bangla, English, Arabic, and more to make your business accessible to diverse audiences.</p>
+          </div>
+          <div class="innovation-card">
+            <h3>Design as a Subscription</h3>
+            <p>Unlimited graphics design support for brands and creators under a simple monthly subscription.</p>
+          </div>
+          <div class="innovation-card">
+            <h3>Free Brand Audit Reports</h3>
+            <p>Get a detailed report on your brand’s online presence along with improvement strategies — completely free.</p>
+          </div>
+        </div>
+      
+        <div class="innovation-row">
+          <div class="innovation-card">
+            <h3>Tech Internship Program</h3>
+            <p>Certified internship programs for students with hands-on experience working on real client projects.</p>
+          </div>
+          <!-- Two empty cards to keep the layout clean -->
+          <div class="innovation-card empty-card"></div>
+          <div class="innovation-card empty-card"></div>
+        </div>
+      </section>
+      
+
+    <!-- Footer Section -->
+<footer>
+    <div class="footer-section">
+        <h3>Address</h3>
+        <p>123 Tech Street, Dhaka, Bangladesh</p>
+    </div>
+
+    <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61574125826389" target="_blank" class="facebook"></a>
+            <a href="https://www.youtube.com/@sheikhtasmia-05" target="_blank" class="youtube"></a>
+            <a href=" https://www.linkedin.com/company/106535528/" target="_blank" class="linkedin"></a>
+            <a href="https://www.instagram.com" target="_blank" class="instagram"></a>
+        </div>
+    </div>
+
+    <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="our-work.html">Our Work</a></li>
+            <li><a href="our-team-partners.html">Our Team & Partners</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
